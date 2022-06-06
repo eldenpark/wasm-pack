@@ -109,8 +109,6 @@ pub fn cargo_build_wasm(
     cmd.arg("--target").arg("wasm32-unknown-unknown");
     cmd.args(extra_options);
 
-    panic!("power123: {:?}", cmd);
-
     child::run(cmd, "cargo build").context("Compiling your crate to WebAssembly failed")?;
     Ok(())
 }

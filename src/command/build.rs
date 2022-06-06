@@ -281,13 +281,13 @@ impl Build {
         }
         steps.extend(steps![
             step_build_wasm,
-            // step_create_dir,
-            // step_copy_readme,
-            // step_copy_license,
-            // step_install_wasm_bindgen,
-            // step_run_wasm_bindgen,
-            // step_run_wasm_opt,
-            // step_create_json,
+            step_create_dir,
+            step_copy_readme,
+            step_copy_license,
+            step_install_wasm_bindgen,
+            step_run_wasm_bindgen,
+            step_run_wasm_opt,
+            step_create_json,
         ]);
         steps
     }

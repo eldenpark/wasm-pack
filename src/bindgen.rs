@@ -8,6 +8,7 @@ use manifest::CrateData;
 use semver;
 use std::path::Path;
 use std::process::Command;
+use PBAR;
 
 /// Run the `wasm-bindgen` CLI to generate bindings for the current crate's
 /// `.wasm`.
@@ -69,6 +70,8 @@ pub fn wasm_bindgen_build(
     if profile.wasm_bindgen_dwarf_debug_info() {
         cmd.arg("--keep-debug");
     }
+
+    PBAR.info(&format!("wasm_bindgen_build(): cmd: {:?}", cmd));
 
     child::run(cmd, "wasm-bindgen").context("Running the wasm-bindgen CLI")?;
     Ok(())

@@ -8,12 +8,11 @@ pub struct State {
 }
 
 #[wasm_bindgen]
-pub fn init() {
+pub fn init() -> usize {
     let state = State {
         validators: vec!["person_1".into(), "person_2".into()],
     };
 
-    // storage.set_state(serde_json::to_string(&state).unwrap());
+    let a = serde_json::to_string(&state).unwrap();
+    return a.len();
 }
-
-pub fn query() {}

@@ -232,6 +232,8 @@ impl Build {
     pub fn run(&mut self) -> Result<(), Error> {
         let process_steps = Build::get_process_steps(self.mode);
 
+        PBAR.info(&format!("process_steps len, {:?}", process_steps.len()));
+
         let started = Instant::now();
 
         for (_, process_step) in process_steps {
